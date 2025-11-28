@@ -1,36 +1,144 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Jinay Fitness - Online Coaching Platform
 
-## Getting Started
+A modern, responsive fitness coaching website built with Next.js 16, React 19, TypeScript, and Tailwind CSS with shadcn/ui components.
 
-First, run the development server:
+## 🌟 Features
 
+### Pages
+- **Home Page**: Hero section with inspiring quote, services overview, testimonials carousel, and call-to-actions
+- **About Me**: Detailed information about the coach, certifications, experience, and core values
+- **Online Program**: Comprehensive overview of the coaching methodology and training philosophy
+- **Contact**: Interactive contact form with messaging capability
+- **Plan Details**: Dynamic pages for each pricing tier with detailed breakdowns
+
+### Components
+- **Responsive Header**: Navigation with mobile menu support
+- **Hero Section**: Full-width image with overlapping quote and scroll-to-section functionality
+- **Services**: Plan cards with pricing and "View Details" buttons
+- **Testimonials**: Animated carousel showcasing client reviews
+- **Footer**: Multi-column layout with links and social media
+
+### Pricing Plans
+1. **1 Month** - $200
+2. **3 Months** - $500 (Most Popular)
+3. **6 Months** - $1,000
+4. **12 Months** - $2,100 (Save $300)
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 20+ installed
+- npm or yarn package manager
+
+### Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd jinay-fitness
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-## Learn More
+## 📁 Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+jinay-fitness/
+├── src/
+│   ├── app/
+│   │   ├── about/
+│   │   │   └── page.tsx
+│   │   ├── contact/
+│   │   │   └── page.tsx
+│   │   ├── online-program/
+│   │   │   └── page.tsx
+│   │   ├── plan/
+│   │   │   └── [id]/
+│   │   │       └── page.tsx
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   ├── components/
+│   │   ├── ui/
+│   │   │   ├── button.tsx
+│   │   │   ├── card.tsx
+│   │   │   ├── input.tsx
+│   │   │   └── textarea.tsx
+│   │   ├── Header.tsx
+│   │   ├── Hero.tsx
+│   │   ├── Services.tsx
+│   │   ├── Testimonials.tsx
+│   │   └── Footer.tsx
+│   └── lib/
+│       └── utils.ts
+├── public/
+├── package.json
+└── tsconfig.json
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎨 Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Framework**: Next.js 16 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS 4
+- **UI Components**: shadcn/ui
+- **Icons**: Lucide React
+- **Fonts**: Geist Sans & Geist Mono
 
-## Deploy on Vercel
+## 🎯 What's Included in Coaching Plans
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Building a resilient, responsive physique by mastering fundamental movement patterns
+- Calisthenics for control, weight training for raw strength, and weighted calisthenics
+- Transitioning from simply moving weight to executing flawless, powerful lifts
+- Refining technique and ingrain efficient motor patterns
+- Personalized workout plans that respect fundamentals and challenge your body
+- Nutrition coaching and strategies to resist unhealthy food temptations
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📱 Responsive Design
+
+The website is fully responsive and optimized for:
+- Mobile devices (320px+)
+- Tablets (768px+)
+- Desktops (1024px+)
+- Large screens (1280px+)
+
+## 🛠️ Development
+
+### Build for Production
+```bash
+npm run build
+```
+
+### Start Production Server
+```bash
+npm start
+```
+
+### Lint Code
+```bash
+npm run lint
+```
+
+## 📄 License
+
+This project is created for Jinay Fitness coaching services.
+
+## 🤝 Contact
+
+For inquiries about coaching services:
+- Email: info@jinayfitness.com
+- Phone: +1 (555) 555-1234
+
+---
+
+Built with ❤️ using Next.js and shadcn/ui
