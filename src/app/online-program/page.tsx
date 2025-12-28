@@ -286,52 +286,35 @@ export default function OnlineProgramPage() {
                     title: '1 Month Program', 
                     price: '200', 
                     duration: '1 month',
-                    perMonth: '200',
-                    
+                    perMonth: '200'
                   },
                   { 
                     id: 'three-months', 
                     title: '3 Month Program', 
                     price: '500', 
                     duration: '3 months',
-                    perMonth: '166.67',
-                    
+                    perMonth: '166.67'
                   },
                   { 
                     id: 'six-months', 
                     title: '6 Month Program', 
                     price: '1,000', 
                     duration: '6 months',
-                    perMonth: '166.67',
-                    
+                    perMonth: '166.67'
                   },
                   { 
                     id: 'twelve-months', 
                     title: '12 Month Program', 
                     price: '2,100', 
                     duration: '12 months',
-                    perMonth: '175',
-                    
+                    perMonth: '175'
                   },
                 ].map((plan, index) => (
                   <Card 
                     key={plan.id} 
-                    className={`bg-white border-2 transition-all group relative overflow-hidden animate-fade-in-up h-full flex flex-col ${
-                      plan.badge === 'Most Popular' 
-                        ? 'border-gray-900 shadow-xl' 
-                        : 'border-gray-300 hover:border-gray-400 hover:shadow-xl'
-                    }`}
+                    className="bg-white border-2 border-gray-300 hover:border-gray-400 hover:shadow-xl transition-all group relative overflow-hidden animate-fade-in-up h-full flex flex-col"
                     style={{ animationDelay: `${index * 0.1 + 0.4}s` }}
                   >
-                    {plan.badge && (
-                      <div className={`absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold z-10 ${
-                        plan.badge === 'Most Popular' 
-                          ? 'bg-gray-900 text-white' 
-                          : 'bg-green-100 text-green-800'
-                      }`}>
-                        {plan.badge}
-                      </div>
-                    )}
                     <CardHeader className="flex-grow">
                       <CardTitle className="text-xl text-gray-900 group-hover:text-gray-700 transition-colors min-h-[56px] pr-20">{plan.title}</CardTitle>
                       <div className="mt-4">
