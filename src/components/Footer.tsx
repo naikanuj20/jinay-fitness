@@ -11,7 +11,7 @@ export default function Footer() {
       </div>
       
       <div className="container mx-auto px-4 py-16 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
           {/* Brand */}
           <div className="space-y-4">
             <h3 className="text-3xl font-bold text-gray-900">
@@ -21,88 +21,55 @@ export default function Footer() {
               Transform your body and elevate your life with personalized online fitness coaching.
             </p>
             <div className="flex space-x-4 pt-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-gray-200 hover:bg-gray-900 hover:text-white flex items-center justify-center transition-all duration-300 transform hover:scale-110">
+              <a href="https://www.instagram.com/jinay.tandel/" className="w-10 h-10 rounded-full bg-gray-200 hover:bg-gray-900 hover:text-white flex items-center justify-center transition-all duration-300 transform hover:scale-110">
                 <Instagram size={20} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-gray-200 hover:bg-gray-900 hover:text-white flex items-center justify-center transition-all duration-300 transform hover:scale-110">
-                <Facebook size={20} />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-gray-200 hover:bg-gray-900 hover:text-white flex items-center justify-center transition-all duration-300 transform hover:scale-110">
-                <Twitter size={20} />
-              </a>
-              <a href="mailto:info@jinayfitness.com" className="w-10 h-10 rounded-full bg-gray-200 hover:bg-gray-900 hover:text-white flex items-center justify-center transition-all duration-300 transform hover:scale-110">
+              <a href="mailto:forgedfitnesswithjinay@gmail.com" className="w-10 h-10 rounded-full bg-gray-200 hover:bg-gray-900 hover:text-white flex items-center justify-center transition-all duration-300 transform hover:scale-110">
                 <Mail size={20} />
               </a>
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-bold mb-6 text-gray-900">Quick Links</h4>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/" className="text-gray-600 hover:text-gray-900 transition-all duration-300 inline-block">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/online-program" className="text-gray-600 hover:text-gray-900 transition-all duration-300 inline-block">
-                  Online Program
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="text-gray-600 hover:text-gray-900 transition-all duration-300 inline-block">
-                  About Me
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-gray-600 hover:text-gray-900 transition-all duration-300 inline-block">
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </div>
+          {/* Right Column - Links and Contact */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            {/* Quick Links */}
+            <div>
+              <h4 className="text-lg font-bold mb-6 text-gray-900">Quick Links</h4>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/" className="text-gray-600 hover:text-gray-900 transition-all duration-300 inline-block">
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/online-program" className="text-gray-600 hover:text-gray-900 transition-all duration-300 inline-block">
+                    Online Program
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/about" className="text-gray-600 hover:text-gray-900 transition-all duration-300 inline-block">
+                    About Me
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact" className="text-gray-600 hover:text-gray-900 transition-all duration-300 inline-block">
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            </div>
 
-          {/* Services */}
-          <div>
-            <h4 className="text-lg font-bold mb-6 text-gray-900">Coaching Plans</h4>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/plan/one-month" className="text-gray-600 hover:text-gray-900 transition-all duration-300 inline-block">
-                  1 Month Plan
-                </Link>
-              </li>
-              <li>
-                <Link href="/plan/three-months" className="text-gray-600 hover:text-gray-900 transition-all duration-300 inline-block">
-                  3 Months Plan
-                </Link>
-              </li>
-              <li>
-                <Link href="/plan/six-months" className="text-gray-600 hover:text-gray-900 transition-all duration-300 inline-block">
-                  6 Months Plan
-                </Link>
-              </li>
-              <li>
-                <Link href="/plan/twelve-months" className="text-gray-600 hover:text-gray-900 transition-all duration-300 inline-block">
-                  12 Months Plan
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h4 className="text-lg font-bold mb-6 text-gray-900">Get in Touch</h4>
-            <div className="space-y-4">
-              <p className="text-gray-600 flex items-center gap-2">
-                <Mail size={18} className="text-gray-900" />
-                <a href="mailto:info@jinayfitness.com" className="hover:text-gray-900 transition-colors">
-                  info@jinayfitness.com
-                </a>
-              </p>
-              <p className="text-gray-600">
-                Available worldwide for online coaching
-              </p>
+            {/* Contact */}
+            <div>
+              <h4 className="text-lg font-bold mb-6 text-gray-900">Get in Touch</h4>
+              <div className="space-y-4">
+                <p className="text-gray-600 flex items-center gap-2">
+                  <Mail size={18} className="text-gray-900" />
+                  <a href="mailto:forgedfitnesswithjinay@gmail.com" className="hover:text-gray-900 transition-colors">
+                    forgedfitnesswithjinay@gmail.com
+                  </a>
+                </p>
+              </div>
             </div>
           </div>
         </div>

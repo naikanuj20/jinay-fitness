@@ -17,14 +17,11 @@ export default function AboutPage() {
               <div>
                 <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">About Jinay Fitness</h1>
                 <p className="text-lg text-gray-700 mb-6">
-                  With over a decade of experience in fitness coaching and personal training, 
-                  I've dedicated my life to helping individuals transform their bodies and minds 
-                  through structured, science-based training programs.
+                  I’m a passionate advocate for fitness that feels good. My philosophy centers on movement as celebration, strength as empowerment, and progress—not perfection.My own fitness journey showed me that true change happens at the intersection of knowledge and support.
+
                 </p>
                 <p className="text-lg text-gray-700 mb-8">
-                  My approach combines traditional strength training with modern calisthenics, 
-                  creating a comprehensive system that builds functional strength, mobility, 
-                  and aesthetic physiques.
+                  I specialize in creating personalized fitness strategies that fit your life, so you can move better, feel stronger, and own your potential. Together, we’ll build habits that nourish your body and energize your life.I’m here to cut through the noise, provide clear guidance, and be your biggest cheerleader as you discover a stronger, healthier, and more energetic version of yourself.
                 </p>
                 <Link href="/contact" className={buttonVariants({ size: "lg", className: "bg-gray-900 text-white hover:bg-gray-800 shadow-lg" })}>
                   Start Your Journey
@@ -96,19 +93,19 @@ export default function AboutPage() {
                 <div className="bg-gray-50 p-6 rounded-lg shadow-sm border-2 border-gray-200 hover:border-black transition-all">
                   <h3 className="text-xl font-semibold mb-2 text-gray-900">Certified Personal Trainer (CPT)</h3>
                   <p className="text-gray-700">
-                    National Academy of Sports Medicine (NASM) - 2013
+                    National Academy of Sports Medicine (NASM)
                   </p>
                 </div>
                 <div className="bg-gray-50 p-6 rounded-lg shadow-sm border-2 border-gray-200 hover:border-black transition-all">
                   <h3 className="text-xl font-semibold mb-2 text-gray-900">Certified Strength & Conditioning Specialist</h3>
                   <p className="text-gray-700">
-                    International Sports Sciences Association (ISSA) - 2015
+                    International Sports Sciences Association (ISSA)
                   </p>
                 </div>
                 <div className="bg-gray-50 p-6 rounded-lg shadow-sm border-2 border-gray-200 hover:border-black transition-all">
                   <h3 className="text-xl font-semibold mb-2 text-gray-900">Precision Nutrition Level 1</h3>
                   <p className="text-gray-700">
-                    Certified in nutrition coaching and habit-based transformation - 2017
+                    Certified in nutrition coaching and habit-based transformation 
                   </p>
                 </div>
                 <div className="bg-gray-50 p-6 rounded-lg shadow-sm border-2 border-gray-200 hover:border-black transition-all">

@@ -172,10 +172,10 @@ export default function ContactPage() {
                       <div>
                         <p className="font-semibold text-gray-900">Email</p>
                         <a
-                          href="mailto:info@jinayfitness.com"
+                          href="mailto:forgedfitnesswithjinay@gmail.com"
                           className="text-sm text-gray-700 hover:text-black"
                         >
-                          info@jinayfitness.com
+                          forgedfitnesswithjinay@gmail.com
                         </a>
                       </div>
                     </div>
@@ -184,10 +184,10 @@ export default function ContactPage() {
                       <div>
                         <p className="font-semibold text-gray-900">Phone</p>
                         <a
-                          href="tel:+15555551234"
+                          href="tel:+16507846890"
                           className="text-sm text-gray-700 hover:text-black"
                         >
-                          +1 (555) 555-1234
+                          +1 (650) 784-6890
                         </a>
                       </div>
                     </div>

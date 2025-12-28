@@ -3,34 +3,37 @@ import { buttonVariants } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Check } from 'lucide-react';
 
-const plans = [
+const sessions = [
   {
-    id: 'one-month',
-    title: '1 Month',
-    price: '$200',
-    duration: '1 month',
-    description: 'Perfect for getting started on your fitness journey',
+    id: 'consultation',
+    title: 'Consultation and Fitness Assessment',
+    duration: '45 minutes',
+    price: 30,
+    description: 'Comprehensive fitness evaluation and personalized consultation',
   },
   {
-    id: 'three-months',
-    title: '3 Months',
-    price: '$500',
-    duration: '3 months',
-    description: 'Build consistent habits and see real progress',
+    id: 'single-session',
+    title: 'Personal Training Session',
+    duration: '55 minutes',
+    price: 49.99,
+    sessions: 1,
+    description: 'One-on-one personalized training session',
   },
   {
-    id: 'six-months',
-    title: '6 Months',
-    price: '$1,000',
-    duration: '6 months',
-    description: 'Transform your physique with dedicated coaching',
+    id: 'six-sessions',
+    title: 'Personal Training - 6 Sessions',
+    duration: '55 minutes',
+    price: 249.99,
+    sessions: 6,
+    description: 'Six personalized training sessions package',
   },
   {
-    id: 'twelve-months',
-    title: '12 Months',
-    price: '$2,100',
-    duration: '12 months',
-    description: 'Complete transformation and mastery program',
+    id: 'twelve-sessions',
+    title: 'Personal Training - 12 Sessions',
+    duration: '55 minutes',
+    price: 499.99,
+    sessions: 12,
+    description: 'Twelve personalized training sessions package',
   },
 ];
 
@@ -53,39 +56,43 @@ export default function Services() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-gray-900">
-            Online Coaching Plans
+            Training Sessions
           </h2>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-            Choose the plan that fits your goals and timeline. All plans include premium features.
+            Choose the session that fits your needs. Add to cart to see pricing and checkout.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {plans.map((plan, index) => (
+          {sessions.map((session, index) => (
             <Card 
-              key={plan.id} 
+              key={session.id} 
               className="relative group hover:shadow-2xl transition-all duration-300 border-2 bg-white border-gray-300 hover:border-gray-400 animate-fade-in-up hover:scale-105"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardHeader className="relative">
-                <CardTitle className="text-2xl font-bold text-gray-900 group-hover:text-gray-700 transition-colors">{plan.title}</CardTitle>
-                <CardDescription className="text-gray-600">{plan.description}</CardDescription>
+                <CardTitle className="text-2xl font-bold text-gray-900 group-hover:text-gray-700 transition-colors">{session.title}</CardTitle>
+                <CardDescription className="text-gray-600">{session.description}</CardDescription>
               </CardHeader>
               <CardContent className="relative">
                 <div className="mb-6">
-                  <span className="text-5xl font-extrabold text-gray-900">{plan.price}</span>
-                  <span className="text-gray-600 text-sm ml-1">/{plan.duration}</span>
+                  <div className="flex items-center gap-2 text-gray-700">
+                    <span className="text-lg font-semibold">{session.duration}</span>
+                    {session.sessions && (
+                      <span className="text-sm text-gray-600">• {session.sessions} session{session.sessions > 1 ? 's' : ''}</span>
+                    )}
+                  </div>
                 </div>
               </CardContent>
               <CardFooter className="relative">
                 <Link 
-                  href={`/payment?plan=${plan.id}&title=${encodeURIComponent(plan.title)}&price=${encodeURIComponent(plan.price)}`}
+                  href={`/payment?plan=${session.id}&title=${encodeURIComponent(session.title)}&price=${session.price}`}
                   className={buttonVariants({ 
                     className: 'w-full transition-all duration-300 font-semibold bg-gray-900 text-white hover:bg-gray-800', 
                     variant: 'default'
                   })}
                 >
-                  Buy Now →
+                  Add to Cart →
                 </Link>
               </CardFooter>
             </Card>

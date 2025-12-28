@@ -46,16 +46,7 @@ export default function Hero() {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-          <button 
-            onClick={scrollToServices}
-            className={buttonVariants({ 
-              size: "lg",
-              className: "bg-white text-black hover:bg-gray-200 shadow-2xl transition-all duration-300 transform hover:scale-105 group text-lg px-8 font-semibold"
-            })}
-          >
-            <span>Explore Plans</span>
-            <ArrowDown className="w-5 h-5 ml-2 group-hover:translate-y-1 transition-transform" />
-          </button>
+          
           
           <button 
             onClick={scrollToServices}

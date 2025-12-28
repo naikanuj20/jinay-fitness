@@ -201,68 +201,180 @@ export default function OnlineProgramPage() {
         {/* Pricing Section */}
         <section id="pricing" className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
+            <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Choose Your Plan</h2>
               <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-                All plans include everything you need to succeed. Longer commitments come with better value.
+                Select from individual training sessions or commit to a monthly coaching program for the best results.
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-              {[
-                { id: 'one-month', title: '1 Month', price: '$200', duration: '1 month' },
-                { id: 'three-months', title: '3 Months', price: '$500', duration: '3 months' },
-                { id: 'six-months', title: '6 Months', price: '$1,000', duration: '6 months' },
-                { id: 'twelve-months', title: '12 Months', price: '$2,100', duration: '12 months' },
-              ].map((plan) => (
-                <Card key={plan.id} className="bg-white border-2 border-gray-300 hover:border-gray-400 transition-all">
-                  <CardHeader>
-                    <CardTitle className="text-2xl text-gray-900">{plan.title}</CardTitle>
-                    <div className="mt-4">
-                      <span className="text-4xl font-bold text-gray-900">{plan.price}</span>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <Link 
-                      href={`/payment?plan=${plan.id}&title=${encodeURIComponent(plan.title)}&price=${encodeURIComponent(plan.price)}`}
-                      className={buttonVariants({ 
-                        className: 'w-full bg-gray-900 text-white hover:bg-gray-800' 
-                      })}
-                    >
-                      Buy Now
-                    </Link>
-                  </CardContent>
-                </Card>
-              ))}
+
+            {/* Training Sessions */}
+            <div className="mb-20">
+              <div className="text-center mb-8">
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">Training Sessions</h3>
+                <p className="text-gray-600">Perfect for getting started or supplementing your current routine</p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                {[
+                  { 
+                    id: 'consultation', 
+                    title: 'Consultation & Assessment', 
+                    price: 30, 
+                    duration: '45 minutes',
+                    description: 'Comprehensive fitness evaluation and personalized consultation'
+                  },
+                  { 
+                    id: 'single-session', 
+                    title: 'Single Training Session', 
+                    price: 49.99, 
+                    duration: '55 minutes',
+                    description: 'One-on-one personalized training session'
+                  },
+                  { 
+                    id: 'six-sessions', 
+                    title: '6 Training Sessions', 
+                    price: 249.99, 
+                    duration: '55 min each',
+                    description: 'Six personalized training sessions package'
+                  },
+                  { 
+                    id: 'twelve-sessions', 
+                    title: '12 Training Sessions', 
+                    price: 499.99, 
+                    duration: '55 min each',
+                    description: 'Twelve personalized training sessions package'
+                  },
+                ].map((session, index) => (
+                  <Card 
+                    key={session.id} 
+                    className="bg-white border-2 border-gray-300 hover:border-gray-400 hover:shadow-xl transition-all group animate-fade-in-up h-full flex flex-col"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <CardHeader className="flex-grow">
+                      <CardTitle className="text-xl text-gray-900 group-hover:text-gray-700 transition-colors min-h-[56px]">{session.title}</CardTitle>
+                      <CardDescription className="text-gray-600 text-sm min-h-[40px]">{session.description}</CardDescription>
+                      <div className="mt-4">
+                        <span className="text-3xl font-bold text-gray-900">${session.price.toFixed(2)}</span>
+                        <p className="text-sm text-gray-600 mt-1">{session.duration}</p>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="pt-0">
+                      <Link 
+                        href={`/payment?plan=${session.id}&title=${encodeURIComponent(session.title)}&price=${session.price}`}
+                        className={buttonVariants({ 
+                          className: 'w-full bg-gray-900 text-white hover:bg-gray-800' 
+                        })}
+                      >
+                        Add to Cart →
+                      </Link>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+
+            {/* Monthly Coaching Programs */}
+            <div>
+              <div className="text-center mb-8">
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">Monthly Coaching Programs</h3>
+                <p className="text-gray-600">Comprehensive online coaching for serious transformation. Longer commitments = better value.</p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                {[
+                  { 
+                    id: 'one-month', 
+                    title: '1 Month Program', 
+                    price: '200', 
+                    duration: '1 month',
+                    perMonth: '200',
+                    
+                  },
+                  { 
+                    id: 'three-months', 
+                    title: '3 Month Program', 
+                    price: '500', 
+                    duration: '3 months',
+                    perMonth: '166.67',
+                    
+                  },
+                  { 
+                    id: 'six-months', 
+                    title: '6 Month Program', 
+                    price: '1,000', 
+                    duration: '6 months',
+                    perMonth: '166.67',
+                    
+                  },
+                  { 
+                    id: 'twelve-months', 
+                    title: '12 Month Program', 
+                    price: '2,100', 
+                    duration: '12 months',
+                    perMonth: '175',
+                    
+                  },
+                ].map((plan, index) => (
+                  <Card 
+                    key={plan.id} 
+                    className={`bg-white border-2 transition-all group relative overflow-hidden animate-fade-in-up h-full flex flex-col ${
+                      plan.badge === 'Most Popular' 
+                        ? 'border-gray-900 shadow-xl' 
+                        : 'border-gray-300 hover:border-gray-400 hover:shadow-xl'
+                    }`}
+                    style={{ animationDelay: `${index * 0.1 + 0.4}s` }}
+                  >
+                    {plan.badge && (
+                      <div className={`absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold z-10 ${
+                        plan.badge === 'Most Popular' 
+                          ? 'bg-gray-900 text-white' 
+                          : 'bg-green-100 text-green-800'
+                      }`}>
+                        {plan.badge}
+                      </div>
+                    )}
+                    <CardHeader className="flex-grow">
+                      <CardTitle className="text-xl text-gray-900 group-hover:text-gray-700 transition-colors min-h-[56px] pr-20">{plan.title}</CardTitle>
+                      <div className="mt-4">
+                        <span className="text-3xl font-bold text-gray-900">${plan.price}</span>
+                        <p className="text-sm text-gray-600 mt-1">${plan.perMonth}/month</p>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="pt-0 space-y-4">
+                      <ul className="space-y-2 text-sm text-gray-700">
+                        <li className="flex items-start">
+                          <Check className="w-4 h-4 text-gray-900 mt-0.5 mr-2 flex-shrink-0" />
+                          <span>Personalized training plans</span>
+                        </li>
+                        <li className="flex items-start">
+                          <Check className="w-4 h-4 text-gray-900 mt-0.5 mr-2 flex-shrink-0" />
+                          <span>Nutrition coaching</span>
+                        </li>
+                        <li className="flex items-start">
+                          <Check className="w-4 h-4 text-gray-900 mt-0.5 mr-2 flex-shrink-0" />
+                          <span>Form check videos</span>
+                        </li>
+                        <li className="flex items-start">
+                          <Check className="w-4 h-4 text-gray-900 mt-0.5 mr-2 flex-shrink-0" />
+                          <span>Direct messaging support</span>
+                        </li>
+                      </ul>
+                      <Link 
+                        href={`/payment?plan=${plan.id}&title=${encodeURIComponent(plan.title)}&price=${plan.price.replace(',', '')}`}
+                        className={buttonVariants({ 
+                          className: 'w-full bg-gray-900 text-white hover:bg-gray-800' 
+                        })}
+                      >
+                        Buy Now
+                      </Link>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-4 text-center">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
-              Ready to Transform Your Fitness?
-            </h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto text-gray-700">
-              Join hundreds of clients who have achieved their fitness goals through personalized online coaching.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact" className={buttonVariants({ size: "lg", className: "bg-gray-900 text-white hover:bg-gray-800" })}>
-                Book a Consultation
-              </Link>
-              <Link 
-                href="#pricing" 
-                className={buttonVariants({ 
-                  size: "lg", 
-                  variant: "outline",
-                  className: "border-gray-300 text-gray-900 hover:bg-gray-900 hover:text-white"
-                })}
-              >
-                View Plans
-              </Link>
-            </div>
-          </div>
-        </section>
+        
       </main>
       <Footer />
     </div>
