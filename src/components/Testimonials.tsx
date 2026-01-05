@@ -5,27 +5,27 @@ import { useState, useEffect } from 'react';
 
 const testimonials = [
   {
-    name: 'Michael Chen',
-    role: 'Software Engineer',
-    content: 'In just 6 months, I went from struggling with basic push-ups to doing weighted pull-ups. The personalized program and nutrition guidance completely transformed my body and confidence.',
+    name: 'Anuj Naik',
+    role: 'Student',
+    content: 'I honestly didn’t think I could stay consistent, but the way the plan was built around my schedule made it easy. I’m stronger, leaner, and feel more confident than I have in years.',
     rating: 5,
   },
   {
-    name: 'Sarah Martinez',
-    role: 'Marketing Manager',
-    content: 'The best investment I\'ve made in myself. The coaching helped me build sustainable habits, and I\'ve never felt stronger or more energized. Highly recommend!',
-    rating: 5,
-  },
-  {
-    name: 'David Thompson',
+    name: 'Hiten Prajapati',
     role: 'Business Owner',
-    content: 'What sets this program apart is the attention to detail in form and technique. I finally understand how to train properly and my lifts have skyrocketed.',
+    content: 'This wasn’t just about workouts. I learned how to train smart and take care of my body. I have more energy during the day and actually look forward to exercising now.',
     rating: 5,
   },
   {
-    name: 'Emily Rodriguez',
-    role: 'Teacher',
-    content: 'The nutrition coaching was game-changing for me. Learning how to eat right while still enjoying food has made this sustainable long-term.',
+    name: 'Aum Karkar',
+    role: '',
+    content: 'I’ve tried multiple programs before, but this is the first one that actually stuck. The coaching felt personal, and the small corrections made a huge difference in my strength.',
+    rating: 5,
+  },
+  {
+    name: 'Nishani Salvi',
+    role: '',
+    content: 'What I loved most was the balance. I didn’t have to give up foods I enjoy, and I still saw real results. It finally feels like something I can maintain long-term.',
     rating: 5,
   },
 ];

@@ -63,25 +63,92 @@ function PaymentContent() {
   const currentSession = sessionDetails[planId] || sessionDetails.consultation;
 
   const [paymentMethod, setPaymentMethod] = useState<'card' | 'venmo'>('card');
+  const [isProcessing, setIsProcessing] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    cardNumber: '',
-    expiryDate: '',
-    cvv: '',
     venmoHandle: '',
   });
 
-  const handleCardPayment = (e: React.FormEvent) => {
+  const handleCardPayment = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In production, integrate with Stripe or similar payment processor
-    alert('Payment processing... In production, this will process your card payment securely.');
+    setIsProcessing(true);
+
+    try {
+      // Call your API to create Stripe checkout session
+      const response = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          planId,
+          planTitle,
+          price: rawPrice,
+          customerEmail: formData.email,
+          customerName: formData.name,
+          paymentMethod: 'card',
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Payment failed');
+      }
+
+      // Redirect to Stripe checkout using the URL
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        throw new Error('No checkout URL received');
+      }
+    } catch (error: any) {
+      console.error('Payment error:', error);
+      alert('Payment failed: ' + (error.message || 'Please try again'));
+      setIsProcessing(false);
+    }
   };
 
-  const handleVenmoPayment = (e: React.FormEvent) => {
+  const handleVenmoPayment = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert(`Please send $${parseFloat(rawPrice).toFixed(2)} to @jinay-fitness on Venmo with your name in the note.`);
+    setIsProcessing(true);
+
+    try {
+      // Call your API to create Stripe checkout session for Venmo
+      const response = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          planId,
+          planTitle,
+          price: rawPrice,
+          customerEmail: formData.email,
+          customerName: formData.name,
+          paymentMethod: 'venmo',
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Payment failed');
+      }
+
+      // Redirect to Stripe checkout using the URL
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        throw new Error('No checkout URL received');
+      }
+    } catch (error: any) {
+      console.error('Payment error:', error);
+      alert('Payment failed: ' + (error.message || 'Please try again'));
+      setIsProcessing(false);
+    }
   };
 
   return (
@@ -194,12 +261,12 @@ function PaymentContent() {
                         <form onSubmit={handleCardPayment} className="space-y-4">
                           <div className="bg-gray-50 border border-gray-300 rounded-lg p-4">
                             <p className="text-sm text-gray-700">
-                              Enter your card details below. All transactions are secure and encrypted.
+                              Click "Pay Now" to securely complete your payment with Stripe. You'll be redirected to enter your card details.
                             </p>
                           </div>
                           <div>
                             <label htmlFor="cardName" className="block text-sm font-semibold mb-2 text-gray-900">
-                              Cardholder Name *
+                              Full Name *
                             </label>
                             <Input
                               id="cardName"
@@ -208,51 +275,8 @@ function PaymentContent() {
                               placeholder="John Doe"
                               className="bg-white border-2 border-gray-300 placeholder:text-gray-500 text-gray-900"
                               required
+                              disabled={isProcessing}
                             />
-                          </div>
-                          <div>
-                            <label htmlFor="cardNumber" className="block text-sm font-semibold mb-2 text-gray-900">
-                              Card Number *
-                            </label>
-                            <Input
-                              id="cardNumber"
-                              value={formData.cardNumber}
-                              onChange={(e) => setFormData({ ...formData, cardNumber: e.target.value })}
-                              placeholder="1234 5678 9012 3456"
-                              className="bg-white border-2 border-gray-300 placeholder:text-gray-500 text-gray-900"
-                              maxLength={19}
-                              required
-                            />
-                          </div>
-                          <div className="grid grid-cols-2 gap-4">
-                            <div>
-                              <label htmlFor="expiryDate" className="block text-sm font-semibold mb-2 text-gray-900">
-                                Expiry Date *
-                              </label>
-                              <Input
-                                id="expiryDate"
-                                value={formData.expiryDate}
-                                onChange={(e) => setFormData({ ...formData, expiryDate: e.target.value })}
-                                placeholder="MM/YY"
-                                className="bg-white border-2 border-gray-300 placeholder:text-gray-500 text-gray-900"
-                                maxLength={5}
-                                required
-                              />
-                            </div>
-                            <div>
-                              <label htmlFor="cvv" className="block text-sm font-semibold mb-2 text-gray-900">
-                                CVV *
-                              </label>
-                              <Input
-                                id="cvv"
-                                value={formData.cvv}
-                                onChange={(e) => setFormData({ ...formData, cvv: e.target.value })}
-                                placeholder="123"
-                                className="bg-white border-2 border-gray-300 placeholder:text-gray-500 text-gray-900"
-                                maxLength={4}
-                                required
-                              />
-                            </div>
                           </div>
                           <div>
                             <label htmlFor="cardEmail" className="block text-sm font-semibold mb-2 text-gray-900">
@@ -266,87 +290,73 @@ function PaymentContent() {
                               placeholder="john@example.com"
                               className="bg-white border-2 border-gray-300 placeholder:text-gray-500 text-gray-900"
                               required
+                              disabled={isProcessing}
                             />
                           </div>
                           <Button
                             type="submit"
-                            className="w-full bg-gray-900 hover:bg-gray-800 text-white font-semibold py-6 text-lg shadow-lg"
+                            className="w-full bg-gray-900 hover:bg-gray-800 text-white font-semibold py-6 text-lg shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                            disabled={isProcessing}
                           >
-                            Pay {planPrice}
+                            {isProcessing ? 'Processing...' : `Pay ${planPrice} with Stripe`}
                           </Button>
+                          <p className="text-xs text-center text-gray-600">
+                            Powered by Stripe • Secure payment processing
+                          </p>
                         </form>
                       )}
 
                       {/* Venmo Section */}
                       {paymentMethod === 'venmo' && (
-                        <div className="space-y-4">
+                        <form onSubmit={handleVenmoPayment} className="space-y-4">
                           <div className="bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
-                            <h4 className="font-semibold text-gray-900 mb-4">Venmo Payment Instructions</h4>
+                            <h4 className="font-semibold text-gray-900 mb-4">Venmo Payment via Stripe</h4>
                             <div className="space-y-3 text-sm">
-                              <div>
-                                <span className="text-gray-600">Venmo Username:</span>
-                                <p className="font-semibold text-gray-900 text-lg">@jinay-fitness</p>
-                              </div>
-                              <div>
-                                <span className="text-gray-600">Amount:</span>
-                                <p className="font-semibold text-gray-900">{planPrice}</p>
-                              </div>
-                              <div className="mt-4 p-3 bg-amber-50 border border-amber-300 rounded">
-                                <p className="text-amber-900 text-sm">
-                                  <strong>Important:</strong> Please include your name and "{planTitle}" in the payment note.
-                                </p>
-                              </div>
+                              <p className="text-gray-700">
+                                You'll be redirected to Stripe to complete your Venmo payment securely. Venmo transfers work instantly!
+                              </p>
                             </div>
                           </div>
-                          <form onSubmit={handleVenmoPayment} className="space-y-4">
-                            <div>
-                              <label htmlFor="venmoName" className="block text-sm font-semibold mb-2 text-gray-900">
-                                Full Name *
-                              </label>
-                              <Input
-                                id="venmoName"
-                                value={formData.name}
-                                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                placeholder="John Doe"
-                                className="bg-white border-2 border-gray-300 placeholder:text-gray-500 text-gray-900"
-                                required
-                              />
-                            </div>
-                            <div>
-                              <label htmlFor="venmoHandle" className="block text-sm font-semibold mb-2 text-gray-900">
-                                Your Venmo Username *
-                              </label>
-                              <Input
-                                id="venmoHandle"
-                                value={formData.venmoHandle}
-                                onChange={(e) => setFormData({ ...formData, venmoHandle: e.target.value })}
-                                placeholder="@your-username"
-                                className="bg-white border-2 border-gray-300 placeholder:text-gray-500 text-gray-900"
-                                required
-                              />
-                            </div>
-                            <div>
-                              <label htmlFor="venmoEmail" className="block text-sm font-semibold mb-2 text-gray-900">
-                                Email Address *
-                              </label>
-                              <Input
-                                id="venmoEmail"
-                                type="email"
-                                value={formData.email}
-                                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                placeholder="john@example.com"
-                                className="bg-white border-2 border-gray-300 placeholder:text-gray-500 text-gray-900"
-                                required
-                              />
-                            </div>
-                            <Button
-                              type="submit"
-                              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-6 text-lg shadow-lg"
-                            >
-                              Confirm Venmo Payment
-                            </Button>
-                          </form>
-                        </div>
+                          <div>
+                            <label htmlFor="venmoName" className="block text-sm font-semibold mb-2 text-gray-900">
+                              Full Name *
+                            </label>
+                            <Input
+                              id="venmoName"
+                              value={formData.name}
+                              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                              placeholder="John Doe"
+                              className="bg-white border-2 border-gray-300 placeholder:text-gray-500 text-gray-900"
+                              required
+                              disabled={isProcessing}
+                            />
+                          </div>
+                          <div>
+                            <label htmlFor="venmoEmail" className="block text-sm font-semibold mb-2 text-gray-900">
+                              Email Address *
+                            </label>
+                            <Input
+                              id="venmoEmail"
+                              type="email"
+                              value={formData.email}
+                              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                              placeholder="john@example.com"
+                              className="bg-white border-2 border-gray-300 placeholder:text-gray-500 text-gray-900"
+                              required
+                              disabled={isProcessing}
+                            />
+                          </div>
+                          <Button
+                            type="submit"
+                            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-6 text-lg shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                            disabled={isProcessing}
+                          >
+                            {isProcessing ? 'Processing...' : `Pay ${planPrice} with Venmo`}
+                          </Button>
+                          <p className="text-xs text-center text-gray-600">
+                            Powered by Stripe • Secure payment processing
+                          </p>
+                        </form>
                       )}
                     </CardContent>
                   </Card>
