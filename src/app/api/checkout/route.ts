@@ -1,24 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 
-const getStripeClient = () => {
-  const apiKey = process.env.STRIPE_SECRET_KEY;
-  if (!apiKey) {
-    throw new Error('STRIPE_SECRET_KEY is not configured');
-  }
-  return new Stripe(apiKey, {
-    apiVersion: '2025-12-15.clover',
-  });
-};
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
 export async function POST(request: NextRequest) {
   try {
-    const stripe = getStripeClient();
-    const { planId, planTitle, price, customerEmail, customerName, paymentMethod } = await request.json();
+    const { planId, planTitle, price, customerEmail, customerName } = await request.json();
 
     // Create Stripe checkout session
     const session = await stripe.checkout.sessions.create({
-      payment_method_types: ['card'],
+      payment_method_types: ['card', 'us_bank_account'], // Card and ACH Debit
       line_items: [
         {
           price_data: {
@@ -40,7 +31,6 @@ export async function POST(request: NextRequest) {
         planId,
         planTitle,
         customerName,
-        paymentMethod: paymentMethod || 'card',
       },
     });
 
