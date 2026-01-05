@@ -9,15 +9,9 @@ export async function POST(request: NextRequest) {
   try {
     const { planId, planTitle, price, customerEmail, customerName, paymentMethod } = await request.json();
 
-    // Determine payment method types based on user selection
-    // Venmo is available in Stripe Checkout for certain US regions
-    const paymentMethods = paymentMethod === 'venmo' 
-      ? ['us_bank_account', 'card'] // Fallback to card if Venmo not available
-      : ['card'];
-
     // Create Stripe checkout session
     const session = await stripe.checkout.sessions.create({
-      payment_method_types: paymentMethods,
+      payment_method_types: ['card'],
       line_items: [
         {
           price_data: {
