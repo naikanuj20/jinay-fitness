@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Jinay Fitness - Online Personal Training & Fitness Coaching",
+  title: "Forged Fitness - Online Personal Training & Fitness Coaching",
   description: "Transform your body with personalized online fitness coaching. Expert guidance in strength training, calisthenics, and nutrition for lasting results.",
 };
 

@@ -42,20 +42,20 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="py-24 bg-[#141414] relative overflow-hidden">
       {/* Background Decoration */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-gray-100/50 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 right-10 w-72 h-72 bg-gray-100/50 rounded-full blur-3xl"></div>
+      <div className="absolute top-20 left-10 w-72 h-72 bg-[#6A00FF]/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 right-10 w-72 h-72 bg-[#6A00FF]/5 rounded-full blur-3xl"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16 animate-fade-in-up">
-          <div className="inline-block px-4 py-1 rounded-full bg-gray-900 text-white text-sm font-semibold mb-4 tracking-wide">
+          <div className="inline-block px-4 py-1 rounded-full bg-[#6A00FF] text-white text-sm font-semibold mb-4 tracking-wide">
             SUCCESS STORIES
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-gray-900">
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-white">
             Client Testimonials
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-[#CFCFCF] max-w-2xl mx-auto">
             Real transformations from real people who trusted the process
           </p>
         </div>
@@ -68,12 +68,12 @@ export default function Testimonials() {
             >
               {testimonials.map((testimonial, index) => (
                 <div key={index} className="w-full flex-shrink-0 px-4">
-                  <Card className="border-2 border-gray-300 shadow-2xl bg-white overflow-hidden hover:border-gray-400 transition-all">
-                    <div className="absolute top-0 left-0 w-full h-1 bg-gray-900"></div>
+                  <Card className="border border-[#1F1F1F] shadow-2xl bg-[#141414] overflow-hidden hover:border-[#6A00FF] transition-all hover:shadow-[#6A00FF]/20">
+                    <div className="absolute top-0 left-0 w-full h-1 bg-[#6A00FF]"></div>
                     <CardContent className="pt-12 pb-8 px-8">
                       {/* Quote Icon */}
                       <div className="mb-6">
-                        <svg className="w-12 h-12 text-gray-200" fill="currentColor" viewBox="0 0 32 32">
+                        <svg className="w-12 h-12 text-[#1F1F1F]" fill="currentColor" viewBox="0 0 32 32">
                           <path d="M10 8c-3.3 0-6 2.7-6 6v10h10V14H8c0-1.1.9-2 2-2V8zm14 0c-3.3 0-6 2.7-6 6v10h10V14h-6c0-1.1.9-2 2-2V8z"/>
                         </svg>
                       </div>
@@ -83,7 +83,7 @@ export default function Testimonials() {
                         {[...Array(testimonial.rating)].map((_, i) => (
                           <svg
                             key={i}
-                            className="w-6 h-6 text-yellow-400 fill-current drop-shadow-sm"
+                            className="w-6 h-6 text-[#6A00FF] fill-current drop-shadow-sm"
                             viewBox="0 0 24 24"
                           >
                             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
@@ -92,18 +92,18 @@ export default function Testimonials() {
                       </div>
                       
                       {/* Testimonial Text */}
-                      <p className="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed font-light italic">
+                      <p className="text-xl md:text-2xl text-[#CFCFCF] mb-8 leading-relaxed font-light italic">
                         "{testimonial.content}"
                       </p>
                       
                       {/* Author Info */}
                       <div className="flex items-center gap-4">
-                        <div className="w-14 h-14 rounded-full bg-gray-900 flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                        <div className="w-14 h-14 rounded-full bg-[#6A00FF] flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-[#6A00FF]/20">
                           {testimonial.name.charAt(0)}
                         </div>
                         <div>
-                          <p className="font-bold text-lg text-gray-900">{testimonial.name}</p>
-                          <p className="text-sm text-gray-600">{testimonial.role}</p>
+                          <p className="font-bold text-lg text-white">{testimonial.name}</p>
+                          <p className="text-sm text-[#9A9A9A]">{testimonial.role}</p>
                         </div>
                       </div>
                     </CardContent>
@@ -121,8 +121,8 @@ export default function Testimonials() {
                 onClick={() => setCurrentIndex(index)}
                 className={`transition-all duration-300 rounded-full ${
                   index === currentIndex 
-                    ? 'w-12 h-3 bg-gray-900' 
-                    : 'w-3 h-3 bg-gray-300 hover:bg-gray-400'
+                    ? 'w-12 h-3 bg-[#6A00FF]' 
+                    : 'w-3 h-3 bg-[#1F1F1F] hover:bg-[#6A00FF]/50'
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />

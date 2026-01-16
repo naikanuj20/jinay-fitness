@@ -112,14 +112,14 @@ function PaymentContent() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-[#0E0E0E]">
       <Header />
       <main>
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-[#0E0E0E]">
           <div className="container mx-auto px-4">
             <Link 
               href="/online-program" 
-              className="inline-flex items-center text-sm text-gray-600 hover:text-gray-900 mb-8 font-semibold"
+              className="inline-flex items-center text-sm text-[#CFCFCF] hover:text-[#6A00FF] mb-8 font-semibold"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Plans
@@ -127,8 +127,8 @@ function PaymentContent() {
 
             <div className="max-w-5xl mx-auto">
               <div className="text-center mb-12">
-                <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Complete Your Purchase</h1>
-                <p className="text-lg text-gray-700">
+                <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">Complete Your Purchase</h1>
+                <p className="text-lg text-[#CFCFCF]">
                   You're one step away from starting your fitness transformation
                 </p>
               </div>
@@ -136,34 +136,34 @@ function PaymentContent() {
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {/* Order Summary */}
                 <div className="lg:col-span-1">
-                  <Card className="bg-gray-50 border-2 border-gray-300 shadow-xl sticky top-8">
+                  <Card className="bg-[#1F1F1F] border-2 border-[#1F1F1F] shadow-xl sticky top-8">
                     <CardHeader>
-                      <CardTitle className="text-gray-900">Order Summary</CardTitle>
+                      <CardTitle className="text-white">Order Summary</CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-4">
                       <div>
-                        <p className="text-sm text-gray-600 mb-1">Selected Plan</p>
-                        <p className="text-xl font-bold text-gray-900">{planTitle}</p>
+                        <p className="text-sm text-[#9A9A9A] mb-1">Selected Plan</p>
+                        <p className="text-xl font-bold text-white">{planTitle}</p>
                       </div>
-                      <div className="bg-white p-4 rounded-lg border border-gray-300">
-                        <p className="text-sm text-gray-700 leading-relaxed">{currentSession.description}</p>
+                      <div className="bg-[#0E0E0E] p-4 rounded-lg border border-[#1F1F1F]">
+                        <p className="text-sm text-[#CFCFCF] leading-relaxed">{currentSession.description}</p>
                       </div>
-                      <div className="border-t border-gray-300 pt-4">
+                      <div className="border-t border-[#1F1F1F] pt-4">
                         <div className="flex justify-between items-center mb-2">
-                          <span className="text-gray-700">Subtotal</span>
-                          <span className="text-gray-900 font-semibold">{planPrice}</span>
+                          <span className="text-[#CFCFCF]">Subtotal</span>
+                          <span className="text-white font-semibold">{planPrice}</span>
                         </div>
-                        <div className="flex justify-between items-center text-lg font-bold border-t border-gray-300 pt-4 mt-4">
-                          <span className="text-gray-900">Total</span>
-                          <span className="text-gray-900">{planPrice}</span>
+                        <div className="flex justify-between items-center text-lg font-bold border-t border-[#1F1F1F] pt-4 mt-4">
+                          <span className="text-white">Total</span>
+                          <span className="text-[#6A00FF]">{planPrice}</span>
                         </div>
                       </div>
-                      <div className="bg-white p-4 rounded-lg border border-gray-300">
-                        <h4 className="font-semibold text-gray-900 mb-2 flex items-center">
-                          <Check className="w-4 h-4 mr-2 text-green-600" />
+                      <div className="bg-[#0E0E0E] p-4 rounded-lg border border-[#1F1F1F]">
+                        <h4 className="font-semibold text-white mb-2 flex items-center">
+                          <Check className="w-4 h-4 mr-2 text-[#6A00FF]" />
                           What's Included
                         </h4>
-                        <ul className="text-sm text-gray-700 space-y-1">
+                        <ul className="text-sm text-[#CFCFCF] space-y-1">
                           {currentSession.details.map((detail, index) => (
                             <li key={index}>• {detail}</li>
                           ))}
@@ -175,20 +175,20 @@ function PaymentContent() {
 
                 {/* Payment Methods */}
                 <div className="lg:col-span-2">
-                  <Card className="border-2 border-gray-300 shadow-xl bg-white">
+                  <Card className="border-2 border-[#1F1F1F] shadow-xl bg-[#0E0E0E]">
                     <CardHeader>
-                      <CardTitle className="text-gray-900">Choose Payment Method</CardTitle>
-                      <CardDescription className="text-gray-700">
+                      <CardTitle className="text-white">Choose Payment Method</CardTitle>
+                      <CardDescription className="text-[#CFCFCF]">
                         Select how you'd like to complete your purchase
                       </CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-6">
                       {/* Payment Info */}
-                      <div className="bg-blue-50 border border-blue-300 rounded-lg p-4">
-                        <p className="text-sm text-gray-700">
+                      <div className="bg-[#1F1F1F] border border-[#6A00FF] border-opacity-30 rounded-lg p-4">
+                        <p className="text-sm text-[#CFCFCF]">
                           All payments are processed securely through <strong>Stripe</strong>. You'll have the option to pay with:
                         </p>
-                        <ul className="text-sm text-gray-700 mt-3 space-y-1">
+                        <ul className="text-sm text-[#CFCFCF] mt-3 space-y-1">
                           <li>✓ Credit/Debit Card (Visa, Mastercard, American Express)</li>
                           <li>✓ ACH Debit (Direct Bank Transfer)</li>
                         </ul>
@@ -197,7 +197,7 @@ function PaymentContent() {
                       {/* Stripe Payment Form */}
                       <form onSubmit={handleStripePayment} className="space-y-4">
                         <div>
-                          <label htmlFor="name" className="block text-sm font-semibold mb-2 text-gray-900">
+                          <label htmlFor="name" className="block text-sm font-semibold mb-2 text-white">
                             Full Name *
                           </label>
                           <Input
@@ -205,13 +205,13 @@ function PaymentContent() {
                             value={formData.name}
                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                             placeholder="John Doe"
-                            className="bg-white border-2 border-gray-300 placeholder:text-gray-500 text-gray-900"
+                            className="bg-[#1F1F1F] border-2 border-[#1F1F1F] placeholder:text-[#9A9A9A] text-white"
                             required
                             disabled={isProcessing}
                           />
                         </div>
                         <div>
-                          <label htmlFor="email" className="block text-sm font-semibold mb-2 text-gray-900">
+                          <label htmlFor="email" className="block text-sm font-semibold mb-2 text-white">
                             Email Address *
                           </label>
                           <Input
@@ -220,19 +220,19 @@ function PaymentContent() {
                             value={formData.email}
                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                             placeholder="john@example.com"
-                            className="bg-white border-2 border-gray-300 placeholder:text-gray-500 text-gray-900"
+                            className="bg-[#1F1F1F] border-2 border-[#1F1F1F] placeholder:text-[#9A9A9A] text-white"
                             required
                             disabled={isProcessing}
                           />
                         </div>
                         <Button
                           type="submit"
-                          className="w-full bg-gray-900 hover:bg-gray-800 text-white font-semibold py-6 text-lg shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                          className="w-full bg-[#6A00FF] hover:bg-[#8C3CFF] text-white font-semibold py-6 text-lg shadow-lg hover:shadow-[#6A00FF]/30 disabled:opacity-50 disabled:cursor-not-allowed"
                           disabled={isProcessing}
                         >
                           {isProcessing ? 'Processing...' : `Proceed to Payment (${planPrice})`}
                         </Button>
-                        <p className="text-xs text-center text-gray-600">
+                        <p className="text-xs text-center text-[#9A9A9A]">
                           Powered by Stripe • Credit Card and ACH Debit available
                         </p>
                       </form>
@@ -240,7 +240,7 @@ function PaymentContent() {
                   </Card>
 
                   {/* Security Notice */}
-                  <div className="mt-6 text-center text-sm text-gray-600">
+                  <div className="mt-6 text-center text-sm text-[#9A9A9A]">
                     <p>🔒 Your payment information is secure and encrypted</p>
                   </div>
                 </div>

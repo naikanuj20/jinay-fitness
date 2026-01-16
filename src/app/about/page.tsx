@@ -7,23 +7,23 @@ import { Award, Target, Heart, TrendingUp } from 'lucide-react';
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-[#0E0E0E]">
       <Header />
       <main>
         {/* Hero Section */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-[#0E0E0E]">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center animate-fade-in-up">
               <div>
-                <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">About Jinay Fitness</h1>
-                <p className="text-lg text-gray-700 mb-6">
-                  I’m a passionate advocate for fitness that feels good. My philosophy centers on movement as celebration, strength as empowerment, and progress—not perfection.My own fitness journey showed me that true change happens at the intersection of knowledge and support.
+                <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">About Jinay Fitness</h1>
+                <p className="text-lg text-[#CFCFCF] mb-6">
+                  I'm a passionate advocate for fitness that feels good. My philosophy centers on movement as celebration, strength as empowerment, and progress—not perfection.My own fitness journey showed me that true change happens at the intersection of knowledge and support.
 
                 </p>
-                <p className="text-lg text-gray-700 mb-8">
+                <p className="text-lg text-[#CFCFCF] mb-8">
                   I specialize in creating personalized fitness strategies that fit your life, so you can move better, feel stronger, and own your potential. Together, we’ll build habits that nourish your body and energize your life.I’m here to cut through the noise, provide clear guidance, and be your biggest cheerleader as you discover a stronger, healthier, and more energetic version of yourself.
                 </p>
-                <Link href="/contact" className={buttonVariants({ size: "lg", className: "bg-gray-900 text-white hover:bg-gray-800 shadow-lg" })}>
+                <Link href="/contact" className={buttonVariants({ size: "lg", className: "bg-[#6A00FF] text-white hover:bg-[#8C3CFF] shadow-lg hover:shadow-[#6A00FF]/30" })}>
                   Start Your Journey
                 </Link>
               </div>
@@ -40,43 +40,43 @@ export default function AboutPage() {
         </section>
 
         {/* Values Section */}
-        <section className="py-20 bg-gray-50">
+        <section className="py-20 bg-[#141414]">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">My Core Values</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">My Core Values</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               <div className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-900 mb-4">
-                  <Target className="w-8 h-8 text-white" />
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#6A00FF] mb-4">
+                  <Target className="w-8 h-8 text-[#0E0E0E]" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-900">Goal-Oriented</h3>
-                <p className="text-gray-600">
+                <h3 className="text-xl font-semibold mb-2 text-white">Goal-Oriented</h3>
+                <p className="text-[#9A9A9A]">
                   Every program is designed with your specific goals in mind, ensuring measurable progress.
                 </p>
               </div>
               <div className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-900 mb-4">
-                  <Award className="w-8 h-8 text-white" />
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#6A00FF] mb-4">
+                  <Award className="w-8 h-8 text-[#0E0E0E]" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-900">Excellence</h3>
-                <p className="text-gray-600">
+                <h3 className="text-xl font-semibold mb-2 text-white">Excellence</h3>
+                <p className="text-[#9A9A9A]">
                   Commitment to the highest standards in coaching, programming, and client support.
                 </p>
               </div>
               <div className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-900 mb-4">
-                  <Heart className="w-8 h-8 text-white" />
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#6A00FF] mb-4">
+                  <Heart className="w-8 h-8 text-[#0E0E0E]" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-900">Holistic Approach</h3>
-                <p className="text-gray-600">
+                <h3 className="text-xl font-semibold mb-2 text-white">Holistic Approach</h3>
+                <p className="text-[#9A9A9A]">
                   Training, nutrition, and mindset work together for complete transformation.
                 </p>
               </div>
               <div className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-900 mb-4">
-                  <TrendingUp className="w-8 h-8 text-white" />
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#6A00FF] mb-4">
+                  <TrendingUp className="w-8 h-8 text-[#0E0E0E]" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-900">Progressive</h3>
-                <p className="text-gray-600">
+                <h3 className="text-xl font-semibold mb-2 text-white">Progressive</h3>
+                <p className="text-[#9A9A9A]">
                   Continuous improvement through systematic progression and adaptation.
                 </p>
               </div>
@@ -85,32 +85,32 @@ export default function AboutPage() {
         </section>
 
         {/* Certifications & Experience */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-[#0E0E0E]">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">Experience & Credentials</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">Experience & Credentials</h2>
             <div className="max-w-3xl mx-auto">
               <div className="space-y-6">
-                <div className="bg-gray-50 p-6 rounded-lg shadow-sm border-2 border-gray-200 hover:border-black transition-all">
-                  <h3 className="text-xl font-semibold mb-2 text-gray-900">Certified Personal Trainer (CPT)</h3>
-                  <p className="text-gray-700">
+                <div className="bg-[#1F1F1F] p-6 rounded-lg shadow-sm border-2 border-[#1F1F1F] hover:border-[#6A00FF] transition-all">
+                  <h3 className="text-xl font-semibold mb-2 text-white">Certified Personal Trainer (CPT)</h3>
+                  <p className="text-[#CFCFCF]">
                     National Academy of Sports Medicine (NASM)
                   </p>
                 </div>
-                <div className="bg-gray-50 p-6 rounded-lg shadow-sm border-2 border-gray-200 hover:border-black transition-all">
-                  <h3 className="text-xl font-semibold mb-2 text-gray-900">Certified Strength & Conditioning Specialist</h3>
-                  <p className="text-gray-700">
+                <div className="bg-[#1F1F1F] p-6 rounded-lg shadow-sm border-2 border-[#1F1F1F] hover:border-[#6A00FF] transition-all">
+                  <h3 className="text-xl font-semibold mb-2 text-white">Certified Strength & Conditioning Specialist</h3>
+                  <p className="text-[#CFCFCF]">
                     International Sports Sciences Association (ISSA)
                   </p>
                 </div>
-                <div className="bg-gray-50 p-6 rounded-lg shadow-sm border-2 border-gray-200 hover:border-black transition-all">
-                  <h3 className="text-xl font-semibold mb-2 text-gray-900">Precision Nutrition Level 1</h3>
-                  <p className="text-gray-700">
+                <div className="bg-[#1F1F1F] p-6 rounded-lg shadow-sm border-2 border-[#1F1F1F] hover:border-[#6A00FF] transition-all">
+                  <h3 className="text-xl font-semibold mb-2 text-white">Precision Nutrition Level 1</h3>
+                  <p className="text-[#CFCFCF]">
                     Certified in nutrition coaching and habit-based transformation 
                   </p>
                 </div>
-                <div className="bg-gray-50 p-6 rounded-lg shadow-sm border-2 border-gray-200 hover:border-black transition-all">
-                  <h3 className="text-xl font-semibold mb-2 text-gray-900">10+ Years Coaching Experience</h3>
-                  <p className="text-gray-700">
+                <div className="bg-[#1F1F1F] p-6 rounded-lg shadow-sm border-2 border-[#1F1F1F] hover:border-[#6A00FF] transition-all">
+                  <h3 className="text-xl font-semibold mb-2 text-white">10+ Years Coaching Experience</h3>
+                  <p className="text-[#CFCFCF]">
                     Successfully coached over 500 clients to achieve their fitness goals
                   </p>
                 </div>
@@ -120,15 +120,15 @@ export default function AboutPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-gray-50">
+        <section className="py-20 bg-[#141414]">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
               Ready to Start Your Transformation?
             </h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto text-gray-700">
+            <p className="text-xl mb-8 max-w-2xl mx-auto text-[#CFCFCF]">
               Let's work together to achieve your fitness goals with a personalized coaching program.
             </p>
-            <Link href="/contact" className={buttonVariants({ size: "lg", className: "bg-gray-900 text-white hover:bg-gray-800 font-semibold shadow-lg" })}>
+            <Link href="/contact" className={buttonVariants({ size: "lg", className: "bg-[#6A00FF] text-white hover:bg-[#8C3CFF] font-semibold shadow-lg hover:shadow-[#6A00FF]/30" })}>
               Get Started Today
             </Link>
           </div>

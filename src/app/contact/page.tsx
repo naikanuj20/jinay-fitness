@@ -45,15 +45,15 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-[#0E0E0E]">
       <Header />
       <main>
         {/* Hero Section */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-[#0E0E0E]">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16 animate-fade-in-up">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">Get In Touch</h1>
-              <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">Get In Touch</h1>
+              <p className="text-lg text-[#CFCFCF] max-w-2xl mx-auto">
                 Ready to transform your fitness journey? Fill out the form below and I'll get back to you within 24 hours.
               </p>
             </div>
@@ -61,19 +61,19 @@ export default function ContactPage() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {/* Contact Form */}
               <div className="lg:col-span-2">
-                <Card className="border-2 border-gray-300 shadow-xl bg-white">
+                <Card className="border border-[#1F1F1F] shadow-xl bg-[#141414] hover:border-[#6A00FF] transition-all">
                   <CardHeader>
-                    <CardTitle className="text-gray-900">Send Me a Message</CardTitle>
-                    <CardDescription className="text-gray-700">
+                    <CardTitle className="text-white">Send Me a Message</CardTitle>
+                    <CardDescription className="text-[#CFCFCF]">
                       Fill out the form below and I'll respond as soon as possible
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
                     {isSubmitted ? (
                       <div className="text-center py-12">
-                        <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-4">
+                        <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#6A00FF]/20 mb-4">
                           <svg
-                            className="w-8 h-8 text-green-700"
+                            className="w-8 h-8 text-[#6A00FF]"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -86,15 +86,15 @@ export default function ContactPage() {
                             />
                           </svg>
                         </div>
-                        <h3 className="text-xl font-semibold mb-2 text-gray-900">Message Sent!</h3>
-                        <p className="text-gray-700">
+                        <h3 className="text-xl font-semibold mb-2 text-white">Message Sent!</h3>
+                        <p className="text-[#CFCFCF]">
                           Thank you for reaching out. I'll get back to you soon.
                         </p>
                       </div>
                     ) : (
                       <form onSubmit={handleSubmit} className="space-y-6">
                         <div>
-                          <label htmlFor="name" className="block text-sm font-semibold mb-2 text-gray-900">
+                          <label htmlFor="name" className="block text-sm font-semibold mb-2 text-white">
                             Full Name *
                           </label>
                           <Input
@@ -103,12 +103,12 @@ export default function ContactPage() {
                             value={formData.name}
                             onChange={handleChange}
                             placeholder="John Doe"
-                            className="bg-white border-2 border-gray-300 placeholder:text-gray-500"
+                            className="bg-[#0E0E0E] border-[#1F1F1F] placeholder:text-[#9A9A9A] text-white"
                             required
                           />
                         </div>
                         <div>
-                          <label htmlFor="email" className="block text-sm font-semibold mb-2 text-gray-900">
+                          <label htmlFor="email" className="block text-sm font-semibold mb-2 text-white">
                             Email Address *
                           </label>
                           <Input
@@ -118,12 +118,12 @@ export default function ContactPage() {
                             value={formData.email}
                             onChange={handleChange}
                             placeholder="john@example.com"
-                            className="bg-white border-2 border-gray-300 placeholder:text-gray-500"
+                            className="bg-[#0E0E0E] border-[#1F1F1F] placeholder:text-[#9A9A9A] text-white"
                             required
                           />
                         </div>
                         <div>
-                          <label htmlFor="phone" className="block text-sm font-semibold mb-2 text-gray-900">
+                          <label htmlFor="phone" className="block text-sm font-semibold mb-2 text-white">
                             Phone Number
                           </label>
                           <Input
@@ -133,11 +133,11 @@ export default function ContactPage() {
                             value={formData.phone}
                             onChange={handleChange}
                             placeholder="+1 (555) 000-0000"
-                            className="bg-white border-2 border-gray-300 placeholder:text-gray-500"
+                            className="bg-[#0E0E0E] border-[#1F1F1F] placeholder:text-[#9A9A9A] text-white"
                           />
                         </div>
                         <div>
-                          <label htmlFor="message" className="block text-sm font-semibold mb-2 text-gray-900">
+                          <label htmlFor="message" className="block text-sm font-semibold mb-2 text-white">
                             Message *
                           </label>
                           <Textarea
@@ -147,11 +147,11 @@ export default function ContactPage() {
                             onChange={handleChange}
                             placeholder="Tell me about your fitness goals and what you're looking to achieve..."
                             rows={6}
-                            className="bg-white border-2 border-gray-300 placeholder:text-gray-500"
+                            className="bg-[#0E0E0E] border-[#1F1F1F] placeholder:text-[#9A9A9A] text-white"
                             required
                           />
                         </div>
-                        <Button type="submit" className="w-full bg-gray-900 text-white hover:bg-gray-800 shadow-lg" size="lg">
+                        <Button type="submit" className="w-full bg-[#6A00FF] text-white hover:bg-[#8C3CFF] font-semibold shadow-lg hover:shadow-[#6A00FF]/30" size="lg">
                           Send Message
                         </Button>
                       </form>
@@ -162,40 +162,40 @@ export default function ContactPage() {
 
               {/* Contact Info */}
               <div className="space-y-6">
-                <Card className="border-2 border-gray-300 shadow-xl bg-white">
+                <Card className="border border-[#1F1F1F] shadow-xl bg-[#141414] hover:border-[#6A00FF] transition-all">
                   <CardHeader>
-                    <CardTitle className="text-gray-900">Contact Information</CardTitle>
+                    <CardTitle className="text-white">Contact Information</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div className="flex items-start space-x-3">
-                      <Mail className="w-5 h-5 text-gray-900 mt-0.5" />
+                      <Mail className="w-5 h-5 text-[#6A00FF] mt-0.5" />
                       <div>
-                        <p className="font-semibold text-gray-900">Email</p>
+                        <p className="font-semibold text-white">Email</p>
                         <a
                           href="mailto:forgedfitnesswithjinay@gmail.com"
-                          className="text-sm text-gray-700 hover:text-black"
+                          className="text-sm text-[#CFCFCF] hover:text-[#6A00FF] transition-colors"
                         >
                           forgedfitnesswithjinay@gmail.com
                         </a>
                       </div>
                     </div>
                     <div className="flex items-start space-x-3">
-                      <Phone className="w-5 h-5 text-gray-900 mt-0.5" />
+                      <Phone className="w-5 h-5 text-[#6A00FF] mt-0.5" />
                       <div>
-                        <p className="font-semibold text-gray-900">Phone</p>
+                        <p className="font-semibold text-white">Phone</p>
                         <a
                           href="tel:+16507846890"
-                          className="text-sm text-gray-700 hover:text-black"
+                          className="text-sm text-[#CFCFCF] hover:text-[#6A00FF] transition-colors"
                         >
                           +1 (650) 784-6890
                         </a>
                       </div>
                     </div>
                     <div className="flex items-start space-x-3">
-                      <MapPin className="w-5 h-5 text-gray-900 mt-0.5" />
+                      <MapPin className="w-5 h-5 text-[#6A00FF] mt-0.5" />
                       <div>
-                        <p className="font-semibold text-gray-900">Location</p>
-                        <p className="text-sm text-gray-700">
+                        <p className="font-semibold text-white">Location</p>
+                        <p className="text-sm text-[#CFCFCF]">
                           Online Coaching Available Worldwide
                         </p>
                       </div>
@@ -203,12 +203,12 @@ export default function ContactPage() {
                   </CardContent>
                 </Card>
 
-                <Card className="bg-white text-gray-700 border-2 border-gray-300 shadow-xl">
+                <Card className="bg-[#141414] text-[#CFCFCF] border border-[#1F1F1F] shadow-xl hover:border-[#6A00FF] transition-all">
                   <CardHeader>
-                    <CardTitle className="text-gray-900">Response Time</CardTitle>
+                    <CardTitle className="text-white">Response Time</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-sm text-gray-700">
+                    <p className="text-sm text-[#CFCFCF]">
                       I typically respond to all inquiries within 24 hours during business days.
                       For urgent matters, please call directly.
                     </p>

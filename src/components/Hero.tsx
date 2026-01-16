@@ -28,8 +28,8 @@ export default function Hero() {
 
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-white/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-[#6A00FF]/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#6A00FF]/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
       </div>
 
       {/* Content Overlay */}
@@ -41,7 +41,7 @@ export default function Hero() {
           <span className="italic"> Elevate Your Life</span>
         </h1>
         
-        <p className="text-lg md:text-xl lg:text-2xl text-white/90 mb-10 max-w-3xl font-light animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+        <p className="text-lg md:text-xl lg:text-2xl text-[#CFCFCF] mb-10 max-w-3xl font-light animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
           Build strength, master technique, and achieve your fitness goals with personalized coaching designed for real results
         </p>
         
@@ -53,7 +53,7 @@ export default function Hero() {
             className={buttonVariants({ 
               size: "lg",
               variant: "outline",
-              className: "bg-transparent backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-black shadow-xl transition-all duration-300 text-lg px-8 font-semibold"
+              className: "bg-transparent backdrop-blur-sm border-2 border-[#6A00FF] text-[#6A00FF] hover:bg-[#6A00FF] hover:text-white shadow-lg shadow-[#6A00FF]/20 hover:shadow-xl hover:shadow-[#6A00FF]/40 transition-all duration-300 text-lg px-8 font-semibold hover:scale-105"
             })}
           >
             Learn More
